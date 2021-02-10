@@ -1,0 +1,29 @@
+{
+    "scripts": {
+      "install" : "scripts/install.js"
+  },
+  "dependencies": {
+    "camelcase": "^6.2.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.20",
+    "repeat-string": "^1.6.1"
+  },
+  "name": "test",
+  "description": "https://github.com/timmit147/matching-application/wiki/Project-tech",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timmit147/matching-application.git"
+  },
+  "keywords": [],
+  "author": "Tim Meeuwsen",
+  "license": "Glide",
+  "bugs": {
+    "url": "https://github.com/timmit147/matching-application/issues"
+  },
+  "homepage": "https://github.com/timmit147/matching-application#readme"
+}
