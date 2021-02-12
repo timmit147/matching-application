@@ -1,0 +1,97 @@
+body{
+	margin: 0 10vw;
+	    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+        padding: 5vh 0;
+}
+
+main{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	align-items: baseline;
+}
+
+#acount {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.button {
+    border: 1px solid;
+    padding: 0.5em 1.5em;
+    border-radius: 0.7em;
+        min-width: 100px;
+    text-align: center;
+}
+
+/*search movies*/
+input[type="ss"] {
+    padding: 10px;
+}
+
+
+/*add movies*/
+
+#movies ul {
+    display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+      padding: 0;
+          gap: 3em;
+}
+
+#movies li {
+    list-style: none;
+    place-self: center;
+    position: relative;
+}
+
+#movies li img {
+    width: 100%;
+}
+
+#movies li:hover img{
+	  -webkit-filter: brightness(50%);
+}
+
+#movies li a:hover:after {
+    content: "+";
+    position: absolute;
+    color: white;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    -webkit-filter: brightness(100%);
+    font-size: 5em;
+}
+
+
+/*Matches*/
+
+ol {
+	padding: 0px;
+    gap: 3em;
+    display: flex;
+    flex-direction: column;
+}
+
+#match li {
+       display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+      padding: 0;
+          gap: 3em;
+}
+
+#match li img {
+    width: 100%;
+}
+
+#match li a:first-child img {
+    border-radius: 50%;
+}
+

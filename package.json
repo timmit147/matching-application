@@ -14,10 +14,14 @@
   },
         "scripts": {
           "echo": " echo ik heet tim",
-          
-          "make": "touch test3.js",
 
-           "node" : "node test.js"
+          "make": "process.exit(1)",
+
+          "x": "touch test3.js",
+
+           "nodemon" : "nodemon test.js"
+
+           
   },
   "repository": {
     "type": "git",
