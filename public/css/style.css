@@ -1,20 +1,89 @@
+/*Algemeen*/
 body{
-	margin: 0 10vw;
+	margin: 10vw;
 	    font-family: 'Open Sans', sans-serif;
 }
 
-header {
-    display: flex;
-    justify-content: flex-end;
-        padding: 5vh 0;
-}
 
 main{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	align-items: baseline;
+	gap: 1em;
 }
+
+h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 1.4em;
+}
+
+p {
+    font-size: 0.8em;
+}
+
+a.button {
+    text-decoration: none;
+    color: black;
+}
+
+/*navigatie*/
+nav {
+    position: fixed;
+    border-top: 1px solid;
+    width: 100vw;
+    height: 10vh;
+    bottom: 0;
+    left: 0;
+        display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1em;
+        background-color: white;
+}
+
+nav a {
+    align-self: center;
+    justify-self: center;
+    text-decoration: none;
+    color: black;
+        gap: 0.2em;
+    display: flex;
+    flex-direction: column;
+                align-items: center;
+}
+
+nav .current, nav .current a:before{
+	color: red;
+	fill: red;
+}
+
+
+nav a:first-child:before{
+	content:url('../images/film.svg');
+}
+
+nav a:nth-child(2):before{
+	content:url('../images/heart.svg');
+}
+
+nav a:nth-child(3):before{
+	content:url('../images/user.svg');
+}
+
+nav a:before{
+	/*content: "+";*/
+	    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 1em;
+    height: 1em;
+}
+
 
 #acount {
     display: flex;
@@ -30,19 +99,19 @@ main{
     text-align: center;
 }
 
-/*search movies*/
+/*Films zoeken*/
 input[type="ss"] {
     padding: 10px;
 }
 
 
-/*add movies*/
+/*Films toevoegen*/
 
 #movies ul {
     display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
       padding: 0;
-          gap: 3em;
+          gap: 1em;
 }
 
 #movies li {
@@ -71,8 +140,7 @@ input[type="ss"] {
 }
 
 
-/*Matches*/
-
+/*Matches zien*/
 ol {
 	padding: 0px;
     gap: 3em;
@@ -95,3 +163,15 @@ ol {
     border-radius: 50%;
 }
 
+/*profiel*/
+#profiel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap :1em;
+        align-items: center;
+}
+
+#profiel img {
+    width: 100%;
+    border-radius: 50%;
+}

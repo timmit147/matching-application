@@ -3,6 +3,7 @@
     "camelcase": "^6.2.0",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
+    "pug": "^3.0.0",
     "repeat-string": "^1.6.1"
   },
   "name": "test",
@@ -10,18 +11,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-        "scripts": {
-          "echo": " echo ik heet tim",
-
-          "make": "process.exit(1)",
-
-          "x": "touch test3.js",
-
-           "nodemon" : "nodemon test.js"
-
-           
+    "echo": " echo ik heet tim",
+    "make": "process.exit(1)",
+    "x": "touch test3.js",
+    "nodemon": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -34,5 +27,4 @@
     "url": "https://github.com/timmit147/matching-application/issues"
   },
   "homepage": "https://github.com/timmit147/matching-application#readme"
-
 }
