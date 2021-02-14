@@ -14,7 +14,7 @@ https://github.com/timmit147/matching-application/wiki/Front-end
 
 # Installation
 
-To use this website you have to have >NodeJS and git on your device.
+To use this website you have to have ```NodeJS``` and ```git``` on your device.
 
 ```bash
 Instal git clone https://github.com/timmit147/matching-application.git
@@ -30,3 +30,5 @@ To start the server type in the terminal:
 ```bash
 npm run nodemon
 ```
+
+Your done now and can use the website on your device.
