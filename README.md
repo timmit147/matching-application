@@ -32,3 +32,6 @@ npm run nodemon
 ```
 
 Your done now and can use the website on your device.
+
+## License
+[Apache-2.0 License](https://github.com/timmit147/matching-application/blob/main/LICENSE)
