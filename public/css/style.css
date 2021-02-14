@@ -27,7 +27,7 @@ p {
     font-size: 0.8em;
 }
 
-a.button {
+a.button, #match a{
     text-decoration: none;
     color: black;
 }
@@ -58,30 +58,33 @@ nav a {
 }
 
 nav .current, nav .current a:before{
-	color: red;
-	fill: red;
+    filter: invert(25%) sepia(46%) saturate(2307%) hue-rotate(332deg) brightness(107%) contrast(106%);
+
+
 }
 
 
 nav a:first-child:before{
-	content:url('../images/film.svg');
+     background-image: url("../images/chat.png");
 }
 
 nav a:nth-child(2):before{
-	content:url('../images/heart.svg');
+    background-image: url("../images/hart.png");
 }
 
 nav a:nth-child(3):before{
-	content:url('../images/user.svg');
+    background-image: url("../images/user.png");
 }
 
 nav a:before{
-	/*content: "+";*/
+	content: " ";
 	    display: flex;
     flex-direction: column;
     text-align: center;
-    width: 1em;
-    height: 1em;
+    height: 1.4em;
+    width: 1.4em;
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -141,26 +144,42 @@ input[type="ss"] {
 
 
 /*Matches zien*/
-ol {
-	padding: 0px;
-    gap: 3em;
+#match{
     display: flex;
     flex-direction: column;
+    gap: 2em;
 }
 
-#match li {
+#match section {
        display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)minmax(0, 1fr);
       padding: 0;
-          gap: 3em;
+        gap: 0.5em;
+            align-items: center;
+                justify-items: center;
 }
 
-#match li img {
+#match section img {
     width: 100%;
+        border: 1px solid black;
+        border-radius: 50%;
 }
 
-#match li a:first-child img {
-    border-radius: 50%;
+
+
+#match ul {
+    padding: 0px;
+    list-style: none;
+    font-size: 14px;
+}
+
+#match section p {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 16px;
+    border-left: 1px solid;
+    width: 100%;
 }
 
 /*profiel*/
