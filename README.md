@@ -44,33 +44,3 @@ Your done now and can use the website on your device.
 [frontend]:https://github.com/timmit147/matching-application/wiki/Front-end
 [License]:https://github.com/timmit147/matching-application/blob/main/LICENSE
 
-<style type="text/css">
-	
-.markdown-body a{
-	color: #FF4136;
-	text-decoration: underline;
-}
-
-h1#matching-application {
-    font-weight: 900;
-}
-
-h1#matching-application:before{
-    background-image: url(https://user-images.githubusercontent.com/29665951/107941366-e77f1480-6f89-11eb-92f2-3a7c4da99570.png);
-    content: " ";
-    display: inline-block;
-    height: 0.8em;
-    width: 0.8em;
-    margin-right: 10px;
-    background-size: cover;
-    background-position: center;
-}
-
-/*![hart](https://user-images.githubusercontent.com/29665951/107941366-e77f1480-6f89-11eb-92f2-3a7c4da99570.png)
-*/
-
-img{
-	width: 32%;
-}
-
-</style>
