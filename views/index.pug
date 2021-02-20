@@ -1,0 +1,28 @@
+include templates/head.pug
+
+	<main>
+
+		<section>
+			<h1>#{title}</h1>
+			<p>#{message}</p>
+			<p>#{movies}</p>
+		</section>
+
+		<section>
+
+			<h2>Film zoeken</h2>
+
+			<input type="ss" name="ss" placeholder ="Zoek balk">
+
+		</section>
+
+		ul
+			each val, key in {1: 'Spiderman', 2: 'Lion king', 3: 'Batman'}
+				li= key + ': ' + val
+
+
+		include templates/movies.pug	
+
+	</main>
+
+include templates/foot.pug

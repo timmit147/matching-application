@@ -1,0 +1,34 @@
+include templates/head.pug
+
+	<main>
+
+	<section>
+		<h1>Profiel aanpassen</h1>
+		<p>Verander je profiel.</p>
+	</section>
+
+
+	<section id="profiel">
+		<img src="images/pexels-photo-220453.jpeg">
+		<ul>
+			<li>Jack</li>
+			<li>24 jaar</li>
+		</ul>
+	</section>
+
+
+
+
+	<h2>#{title}</h2>
+
+	<form action="/bedankt" method="get">
+		<label >First name:</label><br>
+		<input type="text" name="name" value="John"><br>
+		<input type="submit" value="Submit">
+	</form> 
+	
+
+		
+	</main>
+
+include templates/foot.pug

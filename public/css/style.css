@@ -13,6 +13,10 @@ main{
 	gap: 1em;
 }
 
+ul {
+    list-style: none;
+}
+
 h1 {
     font-size: 2em;
     margin: 0;
@@ -27,7 +31,7 @@ p {
     font-size: 0.8em;
 }
 
-a.button, #match a{
+a.button, #match a, #chat a{
     text-decoration: none;
     color: black;
 }
@@ -118,7 +122,6 @@ input[type="ss"] {
 }
 
 #movies li {
-    list-style: none;
     place-self: center;
     position: relative;
 }
@@ -152,28 +155,85 @@ input[type="ss"] {
 
 #match section {
        display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)minmax(0, 0.8fr);
       padding: 0;
         gap: 0.5em;
             align-items: center;
                 justify-items: center;
 }
 
-#match section img {
+#match section img:first-child {
     width: 100%;
         border: 1px solid black;
         border-radius: 50%;
 }
 
 
+#match section img:last-child {
+    width: 100%;
+}
 
 #match ul {
     padding: 0px;
-    list-style: none;
     font-size: 14px;
+        justify-self: baseline;
+    margin: 1em;
+}
+
+
+#match ul li:first-child {
+    font-weight: 900;
 }
 
 #match section p {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 16px;
+    border-left: 1px solid;
+    width: 100%;
+}
+
+/*chat*/
+#chat{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+#chat section {
+       display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 2fr)minmax(0, 0.6fr);
+      padding: 0;
+        gap: 0.5em;
+            align-items: center;
+                justify-items: center;
+}
+
+#chat section img:first-child {
+    width: 100%;
+        border: 1px solid black;
+        border-radius: 50%;
+}
+
+
+#chat section img:last-child {
+    width: 100%;
+}
+
+#chat ul {
+    padding: 0px;
+    font-size: 14px;
+        justify-self: baseline;
+    margin: 1em;
+}
+
+
+#chat ul li:first-child {
+    font-weight: 900;
+}
+
+#chat section p {
     display: flex;
     flex-direction: column;
     text-align: center;
