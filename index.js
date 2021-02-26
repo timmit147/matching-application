@@ -20,10 +20,10 @@ var age = "22";
 // profiel pagina
 app.get('/', (req, res) => {
 
-	  res.render('profiel', { 
-    name: name,
-    age: age
-  })
+    res.render('profiel', {
+        name: name,
+        age: age
+    })
 
 
 });
@@ -33,30 +33,30 @@ app.get('/', (req, res) => {
 // verander info pagina
 app.get('/changeinfo', (req, res) => {
 
-	  res.render('changeinfo', { 
-      name: name,
-      age: age
-  })
+    res.render('changeinfo', {
+        name: name,
+        age: age
+    })
 });
 
 // app get name
 app.get('/bedankt', (req, res) => {
-name = req.query.name;
-    res.render('changeinfo', { 
-       name: name,
-       age: age
-  })
+    name = req.query.name;
+    res.render('changeinfo', {
+        name: name,
+        age: age
+    })
 
 });
 
 
 // app post age
 app.post('/bedankt2', (req, res) => {
-age = req.body.age;
-    res.render('changeinfo', { 
-       name: name,
-       age: age
-  })
+    age = req.body.age;
+    res.render('changeinfo', {
+        name: name,
+        age: age
+    })
 
 });
 
@@ -64,14 +64,14 @@ age = req.body.age;
 app.listen(port, () => {
 
 
-  console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Example app listening at http://localhost:${port}`);
 
-	// Use all files in public
- 	app.use(express.static('public'));
+    // Use all files in public
+    app.use(express.static('public'));
 
- 		app.use(function(req, res, next){
-		res.status(404).send('Page not found');
-	});
+    app.use(function(req, res, next) {
+        res.status(404).send('Page not found');
+    });
 
 
 });
@@ -79,7 +79,7 @@ app.listen(port, () => {
 
 
 // waneer je naar /pizza gaat gaat die een template laden
-app.get('/test', function (req, res) {
-	
+app.get('/test', function(req, res) {
+
 
 })
