@@ -1,8 +1,6 @@
-# Matching-application
-This app wil match people based on their favorite movies.
-
 ![iPhone X, XS, 11 Pro – 29](https://user-images.githubusercontent.com/29665951/109518608-aec35d00-7aaa-11eb-8641-45633a293ffb.png)
 
+This app wil match people based on their favorite movies.
 
 # Wiki
 [wiki][wiki]
