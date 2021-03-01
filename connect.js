@@ -16,11 +16,7 @@ async function run() {
         const col = db.collection("people");
         // Construct a document                                                                                                                                                              
         let personDocument = {
-            "name": { "first": "Jack", "last": "Turing" },
-            "birth": new Date(1912, 5, 23), // June 23, 1912                                                                                                                                 
-            "death": new Date(1954, 5, 7), // June 7, 1954                                                                                                                                  
-            "contribs": ["Turing machine", "Turing test", "Turingery"],
-            "views": 1250000
+            "name": "jack"
         }
         // Insert a single document, wait for promise so we can read it back
         const p = await col.insertOne(personDocument);
@@ -38,6 +34,13 @@ run().catch(console.dir);
 
 
 
+// let personDocument = {
+//     "name": { "first": "Jack", "last": "Turing" },
+//     "birth": new Date(1912, 5, 23), // June 23, 1912                                                                                                                                 
+//     "death": new Date(1954, 5, 7), // June 7, 1954                                                                                                                                  
+//     "contribs": ["Turing machine", "Turing test", "Turingery"],
+//     "views": 1250000
+// }
 
 
 // // Check of connected to cluster0
