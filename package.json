@@ -5,6 +5,7 @@
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "mongodb": "^3.6.4",
+    "nodemon": "^2.0.7",
     "pug": "^3.0.0",
     "repeat-string": "^1.6.1"
   },
