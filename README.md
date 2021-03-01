@@ -1,18 +1,11 @@
 # Matching-application
 This app wil match people based on their favorite movies.
 
-![iPhone X, XS, 11 Pro – 21](https://user-images.githubusercontent.com/29665951/107935916-4b9dda80-6f82-11eb-9515-08f7319ef20a.jpg)
-![iPhone X, XS, 11 Pro – 23](https://user-images.githubusercontent.com/29665951/107935927-4ccf0780-6f82-11eb-8524-ef76e2102a59.jpg)
-![iPhone X, XS, 11 Pro – 22](https://user-images.githubusercontent.com/29665951/107935908-4b054400-6f82-11eb-8bc9-4c8d5ed61994.jpg)
+![iPhone X, XS, 11 Pro – 29](https://user-images.githubusercontent.com/29665951/109518608-aec35d00-7aaa-11eb-8641-45633a293ffb.png)
+
 
 # Wiki
-
-
-## Project tech
-[Link tech][tech]
-
-## Frontend
-[Link frontend][frontend]
+[wiki][wiki]
 
 ## Backend
 
@@ -32,7 +25,7 @@ npm install
 To start the server type in the terminal:
 
 ```bash
-npm run nodemon
+nodemon run
 ```
 
 Your done now and can use the website on your device.
@@ -40,7 +33,6 @@ Your done now and can use the website on your device.
 ## License
 [Apache-2.0 License][License]
 
-[tech]:https://github.com/timmit147/matching-application/wiki/Project-tech
-[frontend]:https://github.com/timmit147/matching-application/wiki/Front-end
+[wiki]:https://github.com/timmit147/matching-application/wiki
 [License]:https://github.com/timmit147/matching-application/blob/main/LICENSE
 
