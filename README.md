@@ -5,8 +5,6 @@ This app wil match people based on their favorite movies.
 # Wiki
 [wiki][wiki]
 
-## Backend
-
 # Installation
 
 To use this website you have to have ```NodeJS``` and ```git``` on your device.
