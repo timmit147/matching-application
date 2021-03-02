@@ -1,6 +1,6 @@
 const { MongoClient } = require("mongodb");
 
-const database = require("./database");
+const database = require("./.env");
 
 const client = new MongoClient(database);
 
