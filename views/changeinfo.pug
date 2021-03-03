@@ -20,15 +20,10 @@ include templates/head.pug
 
 
 	<h2>#{title}</h2>
-
-	<form action="/bedankt" method="get">
-		<label >First name:</label><br>
-		<input type="text" name="name" value="#{name}"><br>
-		<input type="submit" value="Submit">
-	</form> 
 	
 	<form action="/bedankt2" method="post">
 		<label >Age:</label><br>
+		<input type="text" name="name" value="#{name}"><br>
 		<input id="age" type="text" name="age" value="#{age}"><br>
 		<input type="submit" value="Submit">
 	</form> 

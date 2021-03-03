@@ -16,7 +16,8 @@ async function run() {
         const col = db.collection("people");
         // Construct a document                                                                                                                                                              
         let personDocument = {
-            "name": "jack"
+            "name": "jack",
+            "age": "22"
         }
         // Insert a single document, wait for promise so we can read it back
         const p = await col.insertOne(personDocument);

@@ -6,13 +6,21 @@ const path = require('path');
 
 // Pug
 const pug = require('pug');
-
 app.set('view engine', 'pug')
 
 
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(express.urlencoded());
+
+
+// Connect met database
+const { MongoClient } = require("mongodb");
+
+const database = require("./.env");
+
+const client = new MongoClient(database);
+
 
 var name = "jon";
 var age = "22";
@@ -39,23 +47,39 @@ app.get('/changeinfo', (req, res) => {
     })
 });
 
-// app get name
-app.get('/bedankt', (req, res) => {
-    name = req.query.name;
-    res.render('changeinfo', {
-        name: name,
-        age: age
-    })
 
-});
+// The database to use
+var person;
+async function run() {
 
+}
 
 // app post age
-app.post('/bedankt2', (req, res) => {
-    age = req.body.age;
+app.post('/bedankt2', async (req, res) => {
+    var person;
+
+    await client.connect();
+    console.log("Connected correctly to server");
+    const db = client.db("test");
+    // Use the collection "people"
+    const col = db.collection("people");
+    // Find one document
+    person = await col.findOne();
+    // Print to the console
+    console.log(person.name);
+
+
+    // Construct a document                                                                                                                                                              
+    let personDocument = {
+        "name": req.body.name,
+        "age": req.body.age
+    }
+    // Insert a single document, wait for promise so we can read it back
+    const p = await col.insertOne(personDocument);
+
     res.render('changeinfo', {
-        name: name,
-        age: age
+        name: person.name,
+        age: person.age
     })
 
 });
