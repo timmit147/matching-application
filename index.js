@@ -22,7 +22,7 @@ const database = require("./.env");
 const client = new MongoClient(database);
 
 // profiel pagina
-app.get('/', async (req, res) => {
+app.get('/profiel.html', async (req, res) => {
 
     var person;
 
