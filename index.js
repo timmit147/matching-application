@@ -21,41 +21,9 @@ const database = require("./.env");
 
 const client = new MongoClient(database);
 
-
-var name = "jon";
-var age = "22";
-
 // profiel pagina
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
 
-    res.render('profiel', {
-        name: name,
-        age: age
-    })
-
-
-});
-
-
-
-// verander info pagina
-app.get('/changeinfo', (req, res) => {
-
-    res.render('changeinfo', {
-        name: name,
-        age: age
-    })
-});
-
-
-// The database to use
-var person;
-async function run() {
-
-}
-
-// app post age
-app.post('/bedankt2', async (req, res) => {
     var person;
 
     await client.connect();
@@ -65,28 +33,66 @@ app.post('/bedankt2', async (req, res) => {
     const col = db.collection("people");
     // Find one document
     person = await col.findOne();
-    // Print to the console
-    console.log(person.name);
+
+    res.render('profiel', {
+        name: person.name,
+        age: person.age
+    })
 
 
-    // Construct a document                                                                                                                                                              
-    let personDocument = {
-        "name": req.body.name,
-        "age": req.body.age
-    }
-    // Insert a single document, wait for promise so we can read it back
-    const p = await col.insertOne(personDocument);
+});
+
+
+
+// verander info pagina
+app.get('/changeinfo', async (req, res) => {
+
+    var person;
+
+    await client.connect();
+    console.log("Connected correctly to server");
+    const db = client.db("test");
+    // Use the collection "people"
+    const col = db.collection("people");
+    // Find one document
+    person = await col.findOne();
 
     res.render('changeinfo', {
         name: person.name,
         age: person.age
     })
+});
+
+
+
+// app post name and age
+app.post('/bedankt2', async (req, res) => {
+    var person;
+
+    await client.connect();
+    console.log("Connected correctly to server");
+    const db = client.db("test");
+    // Use the collection "people"
+    const col = db.collection("people");
+    // Find one document
+
+// update person age and name
+    col.updateOne({ }, { $set: { age: req.body.age, name: req.body.name } })
+
+    person = await col.findOne();
+
+    // Goed voorbeeld https://kb.objectrocket.com/mongo-db/mongodb-updateone-431
+
+    res.render('changeinfo', {
+        name: req.body.name,
+        age: req.body.age
+    })
 
 });
 
 
+// Start server info
 app.listen(port, () => {
-
 
     console.log(`Example app listening at http://localhost:${port}`);
 
@@ -99,11 +105,3 @@ app.listen(port, () => {
 
 
 });
-
-
-
-// waneer je naar /pizza gaat gaat die een template laden
-app.get('/test', function(req, res) {
-
-
-})
