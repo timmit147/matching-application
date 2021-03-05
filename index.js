@@ -17,9 +17,12 @@ app.use(express.urlencoded());
 // Connect met database
 const { MongoClient } = require("mongodb");
 
+var ObjectId = require('mongodb').ObjectID;
+
 const database = require("./.env");
 
 const client = new MongoClient(database);
+
 
 // profiel pagina
 app.get('/profiel.html', async (req, res) => {
@@ -77,7 +80,21 @@ app.post('/bedankt2', async (req, res) => {
     // Find one document
 
 // update person age and name
-    col.updateOne({ }, { $set: { age: req.body.age, name: req.body.name } })
+    
+    // col.updateOne({ }, { $set: { age: req.body.age, name: req.body.name } })
+
+    col.update(
+   { _id: ObjectId("603fb9c67d5fab08997fc484") },
+   {
+     $inc: { 
+        stock: 5 
+    },
+     $set: {
+       name: req.body.name,
+       age: req.body.age
+     }
+   }
+)
 
     person = await col.findOne();
 
