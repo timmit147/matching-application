@@ -1,22 +1,16 @@
 {
   "dependencies": {
     "body-parser": "^1.19.0",
-    "camelcase": "^6.2.0",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "mongodb": "^3.6.4",
-    "nodemon": "^2.0.7",
-    "pug": "^3.0.0",
-    "repeat-string": "^1.6.1"
+    "pug": "^3.0.0"
   },
   "name": "test",
   "description": "https://github.com/timmit147/matching-application/wiki/Project-tech",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "echo": " echo ik heet tim",
-    "make": "process.exit(1)",
-    "x": "touch test3.js",
     "nodemon": "nodemon index.js"
   },
   "repository": {
@@ -29,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/timmit147/matching-application/issues"
   },
-  "homepage": "https://github.com/timmit147/matching-application#readme"
+  "homepage": "https://github.com/timmit147/matching-application#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
