@@ -24,7 +24,7 @@ To start the server type in the terminal:
 nodemon run
 ```
 
-##.env
+## .env
 Maak een database met:
 
 **Database Name:** test
