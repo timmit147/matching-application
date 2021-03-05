@@ -24,7 +24,8 @@ To start the server type in the terminal:
 nodemon run
 ```
 
-## .env
+## Database
+
 Maak een database met:
 
 **Database Name:** test
@@ -42,6 +43,7 @@ Maak een database met:
   "stock": 130
 }]
 ```
+## .env
 
 Create a .env file in matching-application dictionary and place the following code with your own database in this file.
 
