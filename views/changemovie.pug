@@ -1,0 +1,69 @@
+include templates/head.pug
+
+	<main>
+
+	<section>
+		<h1>Films aanpassen</h1>
+		<p>Vewijder of voeg films toe aan favorieten</p>
+	</section>
+
+
+	<section id="movies">
+		<h2>Favorieten films</h2>
+
+		<ul>
+			<li>
+				<a href="/">
+					<img src="images/Beautiful-mind.jpg" alt="Beautiful mind">
+				</a>
+			</li>
+			<li>
+				<a href="/movies/test/">
+					<img src="images/Forrest-gump.png" alt="Forrest gump">
+				</a>
+			</li>
+			<li>
+				<a href="/movies/test/">
+					<img src="images/Inception.jpg" alt="Inception">
+				</a>
+			</li>
+
+		</ul>
+
+
+	</section>	
+
+
+	<section>
+
+		<h2>Film toevoegen</h2>
+		
+		<form action="/addmovie" method="post">
+			<label >film naam:</label><br>
+			<input type="text" name="moviename" placeholder="naam"><br>
+			<label >film afbeelding:</label><br>
+			<input type="text" name="movieimage" placeholder="Afbeelding"><br>
+			<input type="submit" value="Submit">
+		</form> 
+
+			
+		</main>
+
+	</section>	
+
+	<section>
+
+		<h2>Film verwijderen</h2>
+		
+		<form action="/removemovie" method="post">
+			<label >film naam:</label><br>
+			<input type="text" name="moviename" placeholder="naam"><br>
+			<input type="submit" value="Submit">
+		</form> 
+
+			
+		</main>
+
+	</section>
+
+include templates/foot.pug

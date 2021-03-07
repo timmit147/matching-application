@@ -24,6 +24,9 @@ const database = require("./.env");
 const client = new MongoClient(database);
 
 
+// find collection people
+
+
 // profiel pagina
 app.get('/profiel.html', async (req, res) => {
 
@@ -37,10 +40,20 @@ app.get('/profiel.html', async (req, res) => {
     // Find one document
     person = await col.findOne();
 
+
+    const colm = db.collection("movies");
+
+    movie = await colm.findOne();
+
     res.render('profiel', {
         name: person.name,
-        age: person.age
+        age: person.age,
+        moviename: movie.moviename,
+        movieimage: movie.movieimage
     })
+
+    console.log(movie.moviename);
+    console.log(movie.movieimage);
 
 
 });
@@ -79,11 +92,7 @@ app.post('/bedankt2', async (req, res) => {
     const col = db.collection("people");
     // Find one document
 
-// update person age and name
-    
-    // col.updateOne({ }, { $set: { age: req.body.age, name: req.body.name } })
-
-    col.update(
+    col.updateOne(
    { _id: ObjectId("603fb9c67d5fab08997fc484") },
    {
      $inc: { 
@@ -98,8 +107,6 @@ app.post('/bedankt2', async (req, res) => {
 
     person = await col.findOne();
 
-    // Goed voorbeeld https://kb.objectrocket.com/mongo-db/mongodb-updateone-431
-
     res.render('changeinfo', {
         name: req.body.name,
         age: req.body.age
@@ -107,6 +114,76 @@ app.post('/bedankt2', async (req, res) => {
 
 });
 
+
+// verander info pagina
+app.get('/changemovie', async (req, res) => {
+
+    var person;
+
+    await client.connect();
+    console.log("Connected correctly to server");
+    const db = client.db("test");
+    // Use the collection "people"
+    const col = db.collection("movies");
+    // Find one document
+    person = await col.findOne();
+
+    res.render('changemovie', {
+        moviename: person.moviename,
+        movieimage: person.movieimage
+    })
+});
+
+
+app.post('/addmovie', async (req, res) => {
+    var person;
+
+    await client.connect();
+    console.log("Connected correctly to server");
+    const db = client.db("test");
+    // Use the collection "people"
+    const col = db.collection("movies");
+    // Find one document
+    person = await col.findOne();
+
+    let personDocument = {
+            "moviename": req.body.moviename,
+            "movieimage": req.body.movieimage
+        }
+    // Insert a single document, wait for promise so we can read it back
+    const p = await col.insertOne(personDocument);
+
+    res.render('changemovie', {
+        moviename: person.moviename,
+        movieimage: person.movieimage
+    })
+});
+
+
+app.post('/removemovie', async (req, res) => {
+    var person;
+
+    await client.connect();
+    console.log("Connected correctly to server");
+    const db = client.db("test");
+    // Use the collection "people"
+    const col = db.collection("movies");
+    // Find one document
+    person = await col.findOne();
+
+console.log(req.body.moviename);
+
+        col.deleteOne(
+   { moviename: req.body.moviename }
+)
+
+    res.render('changemovie', {
+        moviename: person.moviename,
+        movieimage: person.movieimage
+    })
+});
+
+console.log("removed movie");
 
 // Start server info
 app.listen(port, () => {
