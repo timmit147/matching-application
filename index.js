@@ -1,7 +1,10 @@
+// Use dot env file
+require('dotenv').config();
+
 // Localhost
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 // Use pug to use templates in website
 const pug = require('pug');
@@ -16,7 +19,6 @@ app.use(express.urlencoded());
 // Connect database with .env username and password
 const { MongoClient } = require("mongodb");
 var ObjectId = require('mongodb').ObjectID;
-require('dotenv').config();
 
 // console.log(process.env);
 const client = new MongoClient(process.env.URL);
