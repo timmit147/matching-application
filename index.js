@@ -1,13 +1,15 @@
+////// Variables //////
+
 // Use dot env file
 require('dotenv').config();
 
 // Localhost
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 3000
+var express = require('express')
+var app = express()
+var port = process.env.PORT || 3000
 
 // Use pug to use templates in website
-const pug = require('pug');
+var pug = require('pug');
 app.set('view engine', 'pug')
 
 // Send data with post
@@ -17,37 +19,51 @@ app.use(express.urlencoded());
 
 
 // Connect database with .env username and password
-const { MongoClient } = require("mongodb");
+var { MongoClient } = require("mongodb");
 var ObjectId = require('mongodb').ObjectID;
+var client = new MongoClient(process.env.URL);
 
-// console.log(process.env);
-const client = new MongoClient(process.env.URL);
+// Get info from database
+var db;
+// collection people
+var col;
+// Person info
+var person;
+// collection movies
+var colm;
+// Movie info
+var movie;
 
+
+////// Funtions //////
 
 // Start localhost server 
-app.listen(port, () => {
+app.listen(port, async () => {
 
     console.log(`Example app listening at http://localhost:${port}`);
+
     // Use all files in public
     app.use(express.static('public'));
+
+    // When 404 send text page not found
     app.use(function(req, res, next) {
         res.status(404).send('Page not found');
     });
 
+    // Get data from database
+    await client.connect();
+    console.log("Connected correctly to server");
+    db = client.db("test");
+    col = db.collection("people");
+    person = await col.findOne();
+    colm = db.collection("movies");
+    movie = await colm.findOne();
 });
+
 
 
 // When going to profiel.html when node is running your wil be redirected to a dynamic template
 app.get('/profiel.html', async (req, res) => {
-
-    await client.connect();
-    console.log("Connected correctly to server");
-    const db = client.db("test");
-    const col = db.collection("people");
-    var person = await col.findOne();
-
-    const colm = db.collection("movies");
-    movie = await colm.findOne();
 
     res.render('profiel', {
         name: person.name,
@@ -64,12 +80,6 @@ app.get('/profiel.html', async (req, res) => {
 // Render template changeinfo with database values 
 app.get('/changeinfo', async (req, res) => {
 
-    await client.connect();
-    console.log("Connected correctly to server");
-    const db = client.db("test");
-    const col = db.collection("people");
-    var person = await col.findOne();
-
     res.render('changeinfo', {
         name: person.name,
         age: person.age
@@ -79,11 +89,6 @@ app.get('/changeinfo', async (req, res) => {
 // Update name and age from database and render template again
 app.post('/bedankt2', async (req, res) => {
     
-    await client.connect();
-    console.log("Connected correctly to server");
-    const db = client.db("test");
-    const col = db.collection("people");
-    var person = await col.findOne();
 
     col.updateOne(
    { _id: ObjectId("603fb9c67d5fab08997fc484") },
@@ -109,10 +114,7 @@ app.post('/bedankt2', async (req, res) => {
 // Render template with movies name and image url
 app.get('/changemovie', async (req, res) => {
 
-    await client.connect();
-    console.log("Connected correctly to server");
-    const db = client.db("test");
-    const col = db.collection("movies");
+    // Search a specific movie
     var movie = await col.find({ },{ moviename: 1 });
 
     res.render('changemovie', {
@@ -125,11 +127,6 @@ app.get('/changemovie', async (req, res) => {
 // Add movie to database with form
 app.post('/addmovie', async (req, res) => {
     
-    await client.connect();
-    console.log("Connected correctly to server");
-    const db = client.db("test");
-    const col = db.collection("movies");
-    var movie = await col.findOne();
 
     // Add movie to database
     let personDocument = {
@@ -137,7 +134,7 @@ app.post('/addmovie', async (req, res) => {
         "movieimage": req.body.movieimage
     }
 
-    const p = await col.insertOne(personDocument);
+    const p = await colm.insertOne(personDocument);
 
     res.render('changemovie', {
         moviename: movie.moviename,
@@ -147,14 +144,8 @@ app.post('/addmovie', async (req, res) => {
 
 // Remove movie from database with form
 app.post('/removemovie', async (req, res) => {
-    
-    await client.connect();
-    console.log("Connected correctly to server");
-    const db = client.db("test");
-    const col = db.collection("movies");
-    var movie = await col.findOne();
 
-    col.deleteOne(
+    colm.deleteOne(
             { moviename: req.body.moviename }
     )
 
