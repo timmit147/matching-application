@@ -16,8 +16,10 @@ app.use(express.urlencoded());
 // Connect database with .env username and password
 const { MongoClient } = require("mongodb");
 var ObjectId = require('mongodb').ObjectID;
-const database = require("./.env");
-const client = new MongoClient(database);
+require('dotenv').config();
+
+// console.log(process.env);
+const client = new MongoClient(process.env.URL);
 
 
 // Start localhost server 
@@ -30,9 +32,7 @@ app.listen(port, () => {
         res.status(404).send('Page not found');
     });
 
-
 });
-
 
 
 // When going to profiel.html when node is running your wil be redirected to a dynamic template
