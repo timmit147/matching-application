@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "603fb9c67d5fab08997fc484"
+  },
+  "movieimage": "images/Beautiful-mind.jpg",
+  "moviename": "Beautiful-mind"
+},{
+  "_id": {
+    "$oid": "6044b98bbb72590da49a6bb9"
+  },
+  "movieimage": "images/Forrest-gump.png",
+  "moviename": "Forrest-gump"
+},{
+  "_id": {
+    "$oid": "6044b9a6bb72590da49a6bba"
+  },
+  "movieimage": "images/Inception.jpg",
+  "moviename": "Inception"
+},{
+  "_id": {
+    "$oid": "6045fc31d657500394854977"
+  },
+  "moviename": "test",
+  "movieimage": ""
+}]
