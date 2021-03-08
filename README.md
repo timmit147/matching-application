@@ -4,7 +4,7 @@ This app wil match people based on their favorite movies. There are 3 main pages
 
 The feature I have made is a form where you can update your users name and age and the user can add and remove movies in the database.
 
-To watch the website live without a database go to [matching-application][matching-application].
+To want to see the app live without a database go to [matching-application][matching-application].
 
 # Wiki 
 If you want to know more about the project you can go to the [wiki][wiki].
