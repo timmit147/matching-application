@@ -30,11 +30,7 @@ Maak een database met:
 
 **Collection Name:** movies
 
-**Json:**
-
-place the 2 json file in your database in the good collection.
-
-[Json files][Json files].
+**Json:** Add [Json files][Json files] to database.
 
 ## .env
 
