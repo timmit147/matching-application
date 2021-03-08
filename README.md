@@ -7,7 +7,7 @@ The feature I have made is a form where you can update your users name and age a
 To watch the website live without a database go to [matching-application][matching-application].
 
 # Wiki 
-If you want to know more about the project you can got to the [wiki][wiki].
+If you want to know more about the project you can go to the [wiki][wiki].
 
 # Installation
 
@@ -28,20 +28,14 @@ Maak een database met:
 
 **Collection Name:** people
 
+**Collection Name:** movies
+
 **Json:**
 
-place the json file in your database.
+place the 2 json file in your database in the good collection.
 
-```json
-[{
-  "_id": {
-    "$oid": "603fb9c67d5fab08997fc484"
-  },
-  "name": "tim",
-  "age": "23",
-  "stock": 130
-}]
-```
+[Json files][Json files].
+
 ## .env
 
 Create a .env file in matching-application dictionary and place the following code with your own database in this file.
@@ -70,4 +64,5 @@ Your done now and can use the website on your device.
 [wiki]:https://github.com/timmit147/matching-application/wiki
 [License]:https://github.com/timmit147/matching-application/blob/main/LICENSE
 [matching-application]:https://timmit147.github.io/matching-application/public/index.html
+[Json files]:https://github.com/timmit147/matching-application/tree/main/json
 
