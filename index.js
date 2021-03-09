@@ -33,7 +33,8 @@ var person;
 var colm;
 // Movie info
 var movie;
-
+// After login get currrentUser id
+var currrentUser;
 
 ////// Funtions //////
 
@@ -58,12 +59,14 @@ app.listen(port, async () => {
     person = await col.findOne();
     colm = db.collection("movies");
     movie = await colm.findOne();
+    currrentUser = "603fb9c67d5fab08997fc484";
 });
 
 
 
 // When going to profiel.html when node is running your wil be redirected to a dynamic template
-app.get('/profiel.html', async (req, res) => {
+app.get('/profiel', async (req, res) => {
+
 
     res.render('profiel', {
         name: person.name,
@@ -91,7 +94,7 @@ app.post('/bedankt2', async (req, res) => {
     
 
     col.updateOne(
-   { _id: ObjectId("603fb9c67d5fab08997fc484") },
+   { _id: ObjectId(currrentUser) },
    {
      $inc: { 
         stock: 5 
