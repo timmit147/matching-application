@@ -36,18 +36,17 @@ Maak een database met:
 
 Create a .env file in matching-application dictionary and place the following code with your own database in this file.
 
-Change the username, password and clustername with your own database.
+Change the username, password and clustername with your own mongodb database.
 
 ```javascript
-var url = "mongodb+srv://username:password@clustername.ubod1.mongodb.net/test";
-module.exports = url;
+URL =  mongodb+srv://username:password@clustername.ubod1.mongodb.net/test
 ```
 
 ## Starting local server
 To start the server type in the terminal:
 
 ```bash
-nodemon run
+npm start
 ```
 
 go to http://localhost:3000/
