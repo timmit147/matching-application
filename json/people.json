@@ -1,8 +1,1 @@
-[{
-  "_id": {
-    "$oid": "603fb9c67d5fab08997fc484"
-  },
-  "name": "tims",
-  "age": "11",
-  "stock": 250
-}]
+{"_id":{"$oid":"603fb9c67d5fab08997fc484"},"name":"tims","age":"23","favoritemovies":["Inception","Forrest-gump","Beautiful-mind"]}
