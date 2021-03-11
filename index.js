@@ -100,9 +100,6 @@ app.post('/bedankt2', async (req, res) => {
     col.updateOne(
    { _id: ObjectId(currrentUser) },
    {
-     $inc: { 
-        stock: 5 
-    },
      $set: {
        name: req.body.name,
        age: req.body.age
@@ -121,9 +118,6 @@ app.post('/bedankt2', async (req, res) => {
 // Render template with movies name and image url
 app.get('/changemovie', async (req, res) => {
 
-    // Search a specific movie
-    var movie = await col.find({ },{ moviename: 1 });
-
     res.render('changemovie', {
         movies: movies
     })
@@ -132,31 +126,33 @@ app.get('/changemovie', async (req, res) => {
 
 // Add movie to database with form
 app.post('/addmovie', async (req, res) => {
-    
-    // Add movie to database
-    let personDocument = {
-        "moviename": req.body.moviename,
-        "movieimage": req.body.movieimage
-    }
 
-    const p = await colm.insertOne(personDocument);
+    col.updateOne(
+   { _id: ObjectId(currrentUser) },
+   {
+     $addToSet: {
+       favoritemovies: req.body.moviename
+     }
+   }
+)
 
     res.render('changemovie', {
-        moviename: movie.moviename,
-        movieimage: movie.movieimage
+        movies: movies
     })
 });
 
 // Remove movie from database with form
 app.post('/removemovie', async (req, res) => {
 
-    colm.deleteOne(
-            { moviename: req.body.moviename }
-    )
 
+    col.update(
+  { _id: ObjectId(currrentUser) },
+  {$pull: { favoritemovies: req.body.moviename }}
+  )
+
+ 
     res.render('changemovie', {
-        moviename: movie.moviename,
-        movieimage: movie.movieimage
+        movies: movies
     })
 });
 

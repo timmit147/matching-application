@@ -14,7 +14,7 @@ include templates/head.pug
 		ul
 			each val in movies
 				li
-					img(src=val.movieimage  alt=val.moviename)
+					img(src=val.movieimage alt=val.moviename)
 
 
 	</section>	
@@ -23,14 +23,13 @@ include templates/head.pug
 	<section>
 
 		<h2>Film toevoegen</h2>
-		
-		<form action="/addmovie" method="post">
-			<label >film naam:</label><br>
-			<input type="text" name="moviename" placeholder="naam"><br>
-			<label >film afbeelding:</label><br>
-			<input type="text" name="movieimage" placeholder="Afbeelding"><br>
-			<input type="submit" value="Submit">
-		</form> 
+
+		form(action="/addmovie" method="post")
+			select(name="moviename")
+				each val in movies
+					option(type="text" value=val.moviename) #{val.moviename}
+			<br><br>
+			<input type="submit">
 
 			
 		</main>
@@ -40,13 +39,14 @@ include templates/head.pug
 	<section>
 
 		<h2>Film verwijderen</h2>
-		
-		<form action="/removemovie" method="post">
-			<label >film naam:</label><br>
-			<input type="text" name="moviename" placeholder="naam"><br>
-			<input type="submit" value="Submit">
-		</form> 
 
+		form(action="/removemovie" method="post")
+			select(name="moviename")
+				each val in movies
+					option(type="text" value=val.moviename) #{val.moviename}
+			<br><br>
+			<input type="submit">
+		
 			
 		</main>
 
