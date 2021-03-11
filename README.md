@@ -14,7 +14,7 @@ If you want to know more about the project you can go to the [wiki][wiki].
 To use this website you have to have ```NodeJS``` , ```git``` and ```npm``` in your terminal.
 
 ```bash
-Instal git clone https://github.com/timmit147/matching-application.git
+git clone https://github.com/timmit147/matching-application.git
 ```
 ```bash
 npm install
