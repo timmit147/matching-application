@@ -16,10 +16,4 @@
   },
   "movieimage": "images/Inception.jpg",
   "moviename": "Inception"
-},{
-  "_id": {
-    "$oid": "6045fc31d657500394854977"
-  },
-  "moviename": "test",
-  "movieimage": ""
 }]
