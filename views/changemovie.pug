@@ -11,24 +11,10 @@ include templates/head.pug
 	<section id="movies">
 		<h2>Favorieten films</h2>
 
-		<ul>
-			<li>
-				<a href="/">
-					<img src="images/Beautiful-mind.jpg" alt="Beautiful mind">
-				</a>
-			</li>
-			<li>
-				<a href="/movies/test/">
-					<img src="images/Forrest-gump.png" alt="Forrest gump">
-				</a>
-			</li>
-			<li>
-				<a href="/movies/test/">
-					<img src="images/Inception.jpg" alt="Inception">
-				</a>
-			</li>
-
-		</ul>
+		ul
+			each val in movies
+				li
+					img(src=val.movieimage  alt=val.moviename)
 
 
 	</section>	

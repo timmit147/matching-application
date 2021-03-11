@@ -35,6 +35,8 @@ var colm;
 var movie;
 // After login get currrentUser id
 var currrentUser;
+// list of movies
+var movies;
 
 ////// Funtions //////
 
@@ -60,6 +62,9 @@ app.listen(port, async () => {
     colm = db.collection("movies");
     movie = await colm.findOne();
     currrentUser = "603fb9c67d5fab08997fc484";
+    movies = await colm.find({}, { }).toArray();
+
+
 });
 
 
@@ -67,12 +72,10 @@ app.listen(port, async () => {
 // When going to profiel.html when node is running your wil be redirected to a dynamic template
 app.get('/profiel', async (req, res) => {
 
-
     res.render('profiel', {
         name: person.name,
         age: person.age,
-        moviename: movie.moviename,
-        movieimage: movie.movieimage
+        movies: movies
     })
 
 });
@@ -83,6 +86,7 @@ app.get('/profiel', async (req, res) => {
 // Render template changeinfo with database values 
 app.get('/changeinfo', async (req, res) => {
 
+    await client.connect();
     res.render('changeinfo', {
         name: person.name,
         age: person.age
@@ -121,8 +125,7 @@ app.get('/changemovie', async (req, res) => {
     var movie = await col.find({ },{ moviename: 1 });
 
     res.render('changemovie', {
-        moviename: movie.moviename,
-        movieimage: movie.movieimage
+        movies: movies
     })
 });
 
@@ -130,7 +133,6 @@ app.get('/changemovie', async (req, res) => {
 // Add movie to database with form
 app.post('/addmovie', async (req, res) => {
     
-
     // Add movie to database
     let personDocument = {
         "moviename": req.body.moviename,
