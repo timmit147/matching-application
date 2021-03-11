@@ -12,9 +12,9 @@ include templates/head.pug
 		<h2>Favorieten films</h2>
 
 		ul
-			each val in movies
+			each val in favoritemovies
 				li
-					img(src=val.movieimage alt=val.moviename)
+					img(src=src='images/' + val + '.jpg', alt=val)
 
 
 	</section>	
@@ -42,8 +42,8 @@ include templates/head.pug
 
 		form(action="/removemovie" method="post")
 			select(name="moviename")
-				each val in movies
-					option(type="text" value=val.moviename) #{val.moviename}
+				each val in favoritemovies
+					option(type="text" value=val) #{val}
 			<br><br>
 			<input type="submit">
 		

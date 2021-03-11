@@ -21,9 +21,9 @@ include templates/head.pug
 		<h2>Favorieten films</h2>
 
 		ul
-			each val in movies
+			each val in favoritemovies
 				li
-					img(src=val.movieimage  alt=val.moviename)
+					img(src=src='images/' + val + '.jpg', alt=val)
 
 		<a class="button" href="changemovie">Aanpassen</a>
 

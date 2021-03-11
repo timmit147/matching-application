@@ -37,6 +37,8 @@ var movie;
 var currrentUser;
 // list of movies
 var movies;
+// get curent user favorite moviename
+var usermovies;
 
 ////// Funtions //////
 
@@ -64,7 +66,6 @@ app.listen(port, async () => {
     currrentUser = "603fb9c67d5fab08997fc484";
     movies = await colm.find({}, { }).toArray();
 
-
 });
 
 
@@ -72,10 +73,14 @@ app.listen(port, async () => {
 // When going to profiel.html when node is running your wil be redirected to a dynamic template
 app.get('/profiel', async (req, res) => {
 
+    var person = await col.findOne();
+    var favoritemovies = (person.favoritemovies );
+
     res.render('profiel', {
         name: person.name,
         age: person.age,
-        movies: movies
+        movies: movies,
+        favoritemovies: favoritemovies
     })
 
 });
@@ -118,8 +123,12 @@ app.post('/bedankt2', async (req, res) => {
 // Render template with movies name and image url
 app.get('/changemovie', async (req, res) => {
 
+    var person = await col.findOne();
+    var favoritemovies = (person.favoritemovies );
+
     res.render('changemovie', {
-        movies: movies
+        movies: movies,
+        favoritemovies: favoritemovies
     })
 });
 
@@ -136,9 +145,8 @@ app.post('/addmovie', async (req, res) => {
    }
 )
 
-    res.render('changemovie', {
-        movies: movies
-    })
+    res.redirect('/changemovie');
+
 });
 
 // Remove movie from database with form
@@ -149,11 +157,8 @@ app.post('/removemovie', async (req, res) => {
   { _id: ObjectId(currrentUser) },
   {$pull: { favoritemovies: req.body.moviename }}
   )
-
  
-    res.render('changemovie', {
-        movies: movies
-    })
+       res.redirect('/changemovie');
 });
 
 
