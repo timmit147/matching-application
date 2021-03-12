@@ -36,10 +36,10 @@ Maak een database met:
 
 Create a .env file in matching-application dictionary and place the following code with your own database in this file.
 
-Change the **username**, **password**, **clustername** and **databasename** with your own mongodb database.
+Change the **username**, **password** and **clustername** with your own mongodb database.
 
 ```javascript
-URL =  mongodb+srv://username:password@clustername.ubod1.mongodb.net/databasename
+URL =  mongodb+srv://username:password@clustername.ubod1.mongodb.net/test
 ```
 
 ## Starting local server
