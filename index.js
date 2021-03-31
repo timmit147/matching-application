@@ -43,6 +43,9 @@ var usermovies;
 ////// Funtions //////
 
 // Start localhost server 
+
+
+
 app.listen(port, async () => {
 
     console.log(`Example app listening at http://localhost:${port}`);
@@ -50,11 +53,13 @@ app.listen(port, async () => {
     // Use all files in public
     app.use(express.static('public'));
 
+       console.log("1");
+
     // When 404 send text page not found
     app.use(function(req, res, next) {
         res.status(404).send('Page not found');
     });
-
+console.log("2");
     // Get data from database
     await client.connect();
     console.log("Connected correctly to server");
@@ -65,6 +70,7 @@ app.listen(port, async () => {
     movie = await colm.findOne();
     currrentUser = "603fb9c67d5fab08997fc484";
     movies = await colm.find({}, { }).toArray();
+    console.log("3");
 
 });
 
